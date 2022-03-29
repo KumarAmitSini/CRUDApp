@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace CRUDApp.Models
+{
+    public class UserModel
+    {
+        [Required]
+        public int id { get; set; }
+        [Required]
+        public string ename { get; set; }
+        [Required]
+        public string email { get; set; }
+        [Required]
+        public Nullable<int> password { get; set; }
+    }
+}

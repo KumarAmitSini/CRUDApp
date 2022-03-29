@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin Page</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <!-- MetisMenu CSS -->
+
+    <link href="~/Content/css/metisMenu.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+
+    <link href="~/Content/css/startmin.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    @*<div id="page-wrapper">*@
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-offset-4 col-lg-4 col-lg-offset-4">
+                    <h1 class="page-header">Sign Up Forms</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            @using (Html.BeginForm("Regis", "Home", FormMethod.Post))
+            {
+                @model CRUDApp.Models.UserModel
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-offset-4 col-lg-4 col-lg-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Please fill out the application
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <h4 style="color: green;">@TempData["added"]</h4>
+                                            <label>Name</label>
+                                            @Html.TextBoxFor(m => m.ename, new { @class = "form-control", @required = "required" })
+                                            <i class="text-danger">@Html.ValidationMessageFor(m => m.ename)</i>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>E-Mail</label>
+                                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @required = "required" })
+                                            <i class="text-danger">@Html.ValidationMessageFor(m => m.email)</i>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            @Html.PasswordFor(m => m.password, new { @class = "form-control", @required = "required" })
+                                            <i class="text-danger">@Html.ValidationMessageFor(m => m.password)</i>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <a class="btn btn-default" href="@Url.Action("Dashboard","Home")">back</a>
+                                        @*<button type="reset" class="btn btn-default">Reset Button</button>*@
+
+                                    </div>
+
+                                    <!-- /.col-lg-6 (nested) -->
+                                </div>
+                                <!-- /.row (nested) -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            }
+        </div>
+
+    @*</div>*@
+    </body>
+</html>
+
+
